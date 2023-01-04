@@ -3,20 +3,21 @@ import {
     ElementRef,
     EventEmitter,
     HostListener,
+    OnInit,
     Output,
 } from '@angular/core';
 import { fromEvent, take } from 'rxjs';
 
 @Directive({
-    selector: '[clickOutside]',
+    selector: '[appClickOutside]',
 })
-export class ClickOutsideDirective {
+export class ClickOutsideDirective implements OnInit {
     @Output() clickOutside = new EventEmitter();
     captured = false;
     constructor(private elRef: ElementRef) {}
 
     @HostListener('document:click', ['$event.target'])
-    onClick(target: any) {
+    onClick(target: ElementRef) {
         if (!this.captured) {
             return;
         }
