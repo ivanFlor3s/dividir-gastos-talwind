@@ -1,0 +1,50 @@
+<!-- TODO Make a static wave con Concavidad + -->
+<div class="text-center py-2 bg-indigo-500">
+    <h1 class="text-white text-xl">Añadir un gasto</h1>
+</div>
+<div class="container p-6">
+    <div class="flex flex-col space-y-2">
+        <div class="flex flex-row flex-nowrap">
+            <span>Con:</span>
+            <!-- TODO crear componente badge -->
+            <span
+                class="ml-auto border border-gray-500 bg-gray-200 px-2 rounded-full text-sm"
+            >
+                Franco
+                <i
+                    class="fa-regular fa-times-circle cursor-pointer hover:font-bold"
+                ></i>
+            </span>
+        </div>
+
+        <hr />
+
+        <div class="flex flex-row flex-nowrap space-x-2">
+            <div class="flex-1 flex flex-col">
+                <label for="target-person" class="text-xs mb-1"
+                    >Descripcion</label
+                >
+                <input
+                    class="td-form-control"
+                    id="target-person"
+                    type="text"
+                    placeholder="Ingrese una breve descripcion"
+                />
+            </div>
+            <div class="flex flex-col">
+                <label for="gasto" class="text-xs mb-1">Gasto</label>
+                <input class="td-form-control" id="gasto" type="number" />
+            </div>
+        </div>
+        <p>Categorias</p>
+        <p>
+            Pagad por <button class="td-btn-primary rounded-full">Ti</button> y
+            dividido a
+            <button class="td-btn-primary rounded-full">partes iguales</button>
+        </p>
+        <p>Aprox: $___ /persona</p>
+        <div class="flex justify-center">
+            <button class="td-btn-primary rounded-full">enero 4, 2023</button>
+        </div>
+    </div>
+</div>

@@ -4,6 +4,7 @@ import {
     NgbDatepickerModule,
     NgbModal,
 } from '@ng-bootstrap/ng-bootstrap';
+import { AgregarGastoComponent } from './components';
 
 @Component({
     selector: 'app-dashboard',
@@ -13,6 +14,6 @@ import {
 export class DashboardComponent {
     constructor(private modalService: NgbModal) {}
     openModal() {
-        this.modalService.open('Hola');
+        this.modalService.open(AgregarGastoComponent, {});
     }
 }

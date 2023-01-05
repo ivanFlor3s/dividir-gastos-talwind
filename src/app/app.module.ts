@@ -7,9 +7,10 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AgregarGastoComponent } from './pages/dashboard/components/modals/agregar-gasto/agregar-gasto.component';
 
 @NgModule({
-    declarations: [AppComponent, NavbarComponent, ClickOutsideDirective, DashboardComponent],
+    declarations: [AppComponent, NavbarComponent, ClickOutsideDirective, DashboardComponent, AgregarGastoComponent],
     imports: [BrowserModule, AppRoutingModule, NgbModule],
     providers: [],
     bootstrap: [AppComponent],
