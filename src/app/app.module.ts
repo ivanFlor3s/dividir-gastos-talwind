@@ -11,7 +11,14 @@ import { AgregarGastoComponent } from './pages/dashboard/components/modals/agreg
 import { UsersListComponent } from './components/users-list/users-list.component';
 
 @NgModule({
-    declarations: [AppComponent, NavbarComponent, ClickOutsideDirective, DashboardComponent, AgregarGastoComponent, UsersListComponent],
+    declarations: [
+        AppComponent,
+        NavbarComponent,
+        ClickOutsideDirective,
+        DashboardComponent,
+        AgregarGastoComponent,
+        UsersListComponent,
+    ],
     imports: [BrowserModule, AppRoutingModule, NgbModule],
     providers: [],
     bootstrap: [AppComponent],

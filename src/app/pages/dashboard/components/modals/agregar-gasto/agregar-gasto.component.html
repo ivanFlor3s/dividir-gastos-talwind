@@ -6,7 +6,6 @@
     <div class="flex flex-col space-y-2">
         <div class="flex flex-row flex-nowrap">
             <span>Con:</span>
-            <!-- TODO crear componente badge -->
             <app-users-list [userList]="users" class="ml-1"></app-users-list>
         </div>
 
@@ -30,14 +29,51 @@
             </div>
         </div>
         <p>Categorias</p>
-        <p>
-            Pagad por <button class="td-btn-primary rounded-full">Ti</button> y
-            dividido a
+        <div>
+            Pagado por
+            <!-- <button
+                class="td-btn-primary rounded-full"
+                (click)="openSelectAuthor()"
+            >
+                Ti
+            </button> -->
+            <div ngbDropdown class="inline">
+                <button
+                    type="button"
+                    class="td-btn-primary rounded-full"
+                    id="dropdownBasic1"
+                    ngbDropdownToggle
+                >
+                    Ti
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button ngbDropdownItem>Action - 1</button>
+                    <button ngbDropdownItem>Another Action</button>
+                    <button ngbDropdownItem>Something else is here</button>
+                </div>
+            </div>
+            y dividido a
             <button class="td-btn-primary rounded-full">partes iguales</button>
-        </p>
+        </div>
         <p>Aprox: $___ /persona</p>
-        <div class="flex justify-center">
-            <button class="td-btn-primary rounded-full">enero 4, 2023</button>
+        <div class="flex flex-col">
+            <label for="dp" class="text-xs mb-1">Fecha</label>
+            <div class="input-group">
+                <input
+                    class="td-form-control"
+                    placeholder="yyyy-mm-dd"
+                    name="dp"
+                    ngbDatepicker
+                    #d="ngbDatepicker"
+                />
+                <button
+                    class="td-btn-primary rounded-full bi bi-calendar3"
+                    (click)="d.toggle()"
+                    type="button"
+                >
+                    <i class="fa-regular fa-calendar"></i>
+                </button>
+            </div>
         </div>
     </div>
 </div>
