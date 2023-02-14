@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AgregarGastoComponent } from './pages/dashboard/components/modals/agregar-gasto/agregar-gasto.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
+import { GroupCardComponent } from './pages/dashboard/components';
 
 @NgModule({
     declarations: [
@@ -18,6 +19,7 @@ import { UsersListComponent } from './components/users-list/users-list.component
         DashboardComponent,
         AgregarGastoComponent,
         UsersListComponent,
+        GroupCardComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, NgbModule],
     providers: [],

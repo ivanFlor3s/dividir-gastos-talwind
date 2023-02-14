@@ -1,5 +1,16 @@
-<p>dashboard works!</p>
+<div class="flex flex-row justify-between my-3">
+    <h1 class="text-4xl font-bold lg:text-6xl leading-none">Dashboard</h1>
+    <button class="td-btn-primary">
+        <i class="fa fa-plus"></i> Nuevo grupo
+    </button>
+</div>
+<!-- Grupos cards -->
+<div class="flex flex-col space-y-4">
+    <app-group-card></app-group-card>
+    <app-group-card></app-group-card>
+    <app-group-card></app-group-card>
+</div>
 
-<button class="rounded p-2 bg-indigo-700 text-white" (click)="openModal()">
+<!-- <button class="rounded p-2 bg-indigo-700 text-white" (click)="openModal()">
     Abrir modal
-</button>
+</button> -->
