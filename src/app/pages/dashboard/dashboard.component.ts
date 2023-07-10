@@ -16,4 +16,7 @@ export class DashboardComponent {
     openModal() {
         this.modalService.open(AgregarGastoComponent, {});
     }
+    saludar() {
+        alert('QWUIRWAFSAK');
+    }
 }
