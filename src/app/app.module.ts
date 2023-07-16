@@ -10,6 +10,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AgregarGastoComponent } from './pages/dashboard/components/modals/agregar-gasto/agregar-gasto.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { GroupCardComponent } from './pages/dashboard/components';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,13 @@ import { GroupCardComponent } from './pages/dashboard/components';
         UsersListComponent,
         GroupCardComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule, NgbModule],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NgbModule,
+        ReactiveFormsModule,
+        FormsModule,
+    ],
     providers: [],
     bootstrap: [AppComponent],
 })
