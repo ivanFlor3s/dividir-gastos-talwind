@@ -1,1 +1,50 @@
-<p>register works!</p>
+<form>
+    <div class="container p-6">
+        <h1 class="text-4xl mb-3 font-bold">Registrate</h1>
+        <div class="flex flex-col space-y-4">
+            <div class="flex flex-col">
+                <label for="name" class="text-xs mb-1">Nombre</label>
+                <input
+                    class="td-form-control"
+                    id="name"
+                    autocomplete="off"
+                    type="text"
+                />
+            </div>
+            <div class="flex flex-col">
+                <label for="lastName" class="text-xs mb-1">Apellido</label>
+                <input
+                    class="td-form-control"
+                    id="lastName"
+                    autocomplete="off"
+                    type="text"
+                />
+            </div>
+            <div class="flex flex-col">
+                <label for="email" class="text-xs mb-1">Email</label>
+                <input
+                    class="td-form-control"
+                    id="email"
+                    autocomplete="off"
+                    type="text"
+                />
+            </div>
+            <div class="flex flex-col">
+                <label for="password" class="text-xs mb-1">Contraseña</label>
+                <input class="td-form-control" id="gasto" type="password" />
+            </div>
+            <div class="flex flex-col">
+                <label for="password" class="text-xs mb-1"
+                    >Confirmar Contraseña</label
+                >
+                <input class="td-form-control" id="gasto" type="password" />
+            </div>
+            <div class="flex justify-between items-end">
+                <a href="#" routerLink="../login"> Ya tengo cuenta </a>
+                <button type="submit" class="td-btn-primary rounded-full">
+                    Registrar
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
