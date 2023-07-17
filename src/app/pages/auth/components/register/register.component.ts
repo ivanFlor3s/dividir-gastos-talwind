@@ -28,7 +28,7 @@ export class RegisterComponent {
         ],
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(6)]],
-        password_confirmation: [
+        passwordConfirmation: [
             '',
             [Validators.required, Validators.minLength(6)],
         ],

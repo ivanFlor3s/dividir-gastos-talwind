@@ -11,6 +11,7 @@ import { AgregarGastoComponent } from './pages/dashboard/components/modals/agreg
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { GroupCardComponent } from './pages/dashboard/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ErrorsModule } from '../core/errors/errors.module';
 
 @NgModule({
     declarations: [
@@ -28,6 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         NgbModule,
         ReactiveFormsModule,
         FormsModule,
+        ErrorsModule.forRoot({ required: 'Este campo es requerido' }),
     ],
     providers: [],
     bootstrap: [AppComponent],

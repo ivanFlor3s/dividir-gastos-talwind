@@ -5,6 +5,7 @@
             <div class="flex flex-col">
                 <label for="name" class="text-xs mb-1">Nombre</label>
                 <input
+                    formControlName="name"
                     class="td-form-control"
                     id="name"
                     autocomplete="off"
@@ -14,6 +15,7 @@
             <div class="flex flex-col">
                 <label for="lastName" class="text-xs mb-1">Apellido</label>
                 <input
+                    formControlName="lastName"
                     class="td-form-control"
                     id="lastName"
                     autocomplete="off"
@@ -23,6 +25,7 @@
             <div class="flex flex-col">
                 <label for="email" class="text-xs mb-1">Email</label>
                 <input
+                    formControlName="email"
                     class="td-form-control"
                     id="email"
                     autocomplete="off"
@@ -31,13 +34,23 @@
             </div>
             <div class="flex flex-col">
                 <label for="password" class="text-xs mb-1">Contraseña</label>
-                <input class="td-form-control" id="gasto" type="password" />
+                <input
+                    formControlName="password"
+                    class="td-form-control"
+                    id="password"
+                    type="password"
+                />
             </div>
             <div class="flex flex-col">
-                <label for="password" class="text-xs mb-1"
+                <label for="password-confirmation" class="text-xs mb-1"
                     >Confirmar Contraseña</label
                 >
-                <input class="td-form-control" id="gasto" type="password" />
+                <input
+                    formControlName="passwordConfirmation"
+                    class="td-form-control"
+                    id="password-confirmation"
+                    type="password"
+                />
             </div>
             <div class="flex justify-between items-end">
                 <a href="#" routerLink="../login"> Ya tengo cuenta </a>
