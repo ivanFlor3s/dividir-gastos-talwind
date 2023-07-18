@@ -12,8 +12,9 @@ import {
 } from '@angular/core';
 import { NgControl } from '@angular/forms';
 import { ValidationErrorMsgeService } from './services/error-validation-msge.service';
-import { Subscription } from 'rxjs';
+import { mergeWith, Observable, Subscription } from 'rxjs';
 import { FormControlErrorComponent } from './form-control-error/form-control-error.component';
+import { FormSubmitDirective } from './form-submit.directive';
 
 @Directive({
     // eslint-disable-next-line @angular-eslint/directive-selector
@@ -27,19 +28,22 @@ export class ValidationMsgeDirective implements AfterContentInit, OnDestroy {
     constructor(
         private errorService: ValidationErrorMsgeService,
         private injector: Injector,
+        @Optional() @Host() private form: FormSubmitDirective,
         @Optional() @Host() private host: ViewContainerRef,
         @Optional() @Self() private self: ElementRef,
         @Self() private control: NgControl = injector.get(NgControl)
     ) {}
 
     ngAfterContentInit(): void {
-        this.changesSub = this.control.valueChanges?.subscribe((_) => {
-            this.onChange();
-        });
+        this.changesSub = this.form.submit$
+            .pipe(mergeWith(this.control.valueChanges as Observable<unknown>))
+            .subscribe((_) => {
+                this.onChange();
+            });
     }
 
     private onChange() {
-        if (!this.control.valid && this.control.errors) {
+        if (!this.control.valid && this.control.errors && this.control.dirty) {
             const firstKey = Object.keys(this.control.errors)[0];
             const errorMessage =
                 this.errorService.resolverErrorMessage(firstKey);

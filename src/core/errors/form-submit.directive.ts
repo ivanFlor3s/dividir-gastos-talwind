@@ -1,9 +1,9 @@
 import {
     Directive,
     ElementRef,
+    Injector,
     OnDestroy,
     OnInit,
-    Optional,
     Self,
 } from '@angular/core';
 import { FormGroup, FormGroupDirective } from '@angular/forms';
@@ -12,7 +12,7 @@ import { fromEvent, shareReplay, Subscription } from 'rxjs';
 const markAllControls = (form: FormGroup) => {
     Object.keys(form.controls).forEach((k) => {
         const control = form.get(k);
-        control?.markAsTouched();
+        control?.markAsDirty();
         control?.updateValueAndValidity();
     });
 };
@@ -29,12 +29,12 @@ export class FormSubmitDirective implements OnInit, OnDestroy {
         return this.host.nativeElement;
     }
     constructor(
+        private injector: Injector,
         private host: ElementRef<HTMLFormElement>,
         @Self() private fd: FormGroupDirective
     ) {}
 
     ngOnInit(): void {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         this.submitSub = this.submit$.subscribe((_) => {
             markAllControls(this.fd.form);
         });
