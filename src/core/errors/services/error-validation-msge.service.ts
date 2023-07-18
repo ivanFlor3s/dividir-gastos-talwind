@@ -9,8 +9,11 @@ export class ValidationErrorMsgeService {
     }
 
     resolverErrorMessage(key: string): string | void {
+        // eslint-disable-next-line no-prototype-builtins
+        if (key !== 'minlength' && !this.config.hasOwnProperty(key)) {
+            throw Error('No existe la propiedad en el for root del modulo');
+        }
         if (key) {
-            console.log(key);
             return this.config[key];
         }
     }

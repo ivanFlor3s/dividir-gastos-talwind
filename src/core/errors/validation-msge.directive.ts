@@ -47,7 +47,7 @@ export class ValidationMsgeDirective implements AfterContentInit, OnDestroy {
             const firstKey = Object.keys(this.control.errors)[0];
             const errorMessage =
                 this.errorService.resolverErrorMessage(firstKey);
-            this.setErrorMessage(errorMessage);
+            this.setErrorMessage(firstKey, errorMessage);
         } else {
             this.self.nativeElement.classList.remove('border-red-600');
             this.errorRef?.destroy();
@@ -55,7 +55,7 @@ export class ValidationMsgeDirective implements AfterContentInit, OnDestroy {
         }
     }
 
-    private setErrorMessage(err: string | void) {
+    private setErrorMessage(key: string, err: string | void) {
         if (!this.errorRef) {
             this.self.nativeElement.classList.add('border-red-600');
             this.errorRef = this.host.createComponent(
@@ -64,6 +64,9 @@ export class ValidationMsgeDirective implements AfterContentInit, OnDestroy {
         }
         if (err) {
             this.errorRef.instance.message = err;
+        }
+        if (this.control.errors && key == 'minlength') {
+            this.errorRef.instance.error = this.control.errors['minlength'];
         }
     }
 

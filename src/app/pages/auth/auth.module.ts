@@ -14,7 +14,7 @@ import { ErrorsModule } from '../../../core/errors/errors.module';
         ReactiveFormsModule,
         ErrorsModule.forRoot({
             required: 'Este campo es requerido',
-            minlength: 'Este campo debe tener al menos 6 caracteres',
+            email: 'El email no es valido',
         }),
     ],
     exports: [],
