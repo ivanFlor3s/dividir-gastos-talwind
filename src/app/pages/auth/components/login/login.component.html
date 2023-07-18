@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="loginForm">
     <div class="container p-6">
         <h1 class="text-4xl mb-3 font-bold">Login</h1>
         <div class="flex flex-col space-y-4">
@@ -7,13 +7,19 @@
                 <input
                     class="td-form-control"
                     id="email"
+                    formControlName="email"
                     autocomplete="off"
                     type="text"
                 />
             </div>
             <div class="flex flex-col">
                 <label for="password" class="text-xs mb-1">Contraseña</label>
-                <input class="td-form-control" id="gasto" type="password" />
+                <input
+                    class="td-form-control"
+                    formControlName="password"
+                    id="password"
+                    type="password"
+                />
             </div>
             <div class="flex justify-between items-end">
                 <a href="#" routerLink="../register"> Registrar </a>
