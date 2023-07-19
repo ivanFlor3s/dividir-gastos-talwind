@@ -1,5 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { UsersService } from 'src/core/services/Users.service';
+import { UserCreationDto } from '../../../../models/dtos/user-creation.dto';
 
 @Component({
     selector: 'app-register',
@@ -8,9 +10,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class RegisterComponent {
     private _fb = inject(FormBuilder);
+    private _userService = inject(UsersService);
 
-    registerForm = this._fb.group({
-        name: [
+    registerForm = this._fb.nonNullable.group({
+        firstName: [
             '',
             [
                 Validators.required,
@@ -35,6 +38,9 @@ export class RegisterComponent {
     });
 
     submit() {
-        console.log(this.registerForm);
+        if (this.registerForm.valid) {
+            const dto = this.registerForm.value as UserCreationDto;
+            this._userService.createUser(dto).subscribe(console.log);
+        }
     }
 }
