@@ -12,6 +12,7 @@ import { UsersListComponent } from './components/users-list/users-list.component
 import { GroupCardComponent } from './pages/dashboard/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorsModule } from '../core/errors/errors.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -30,6 +31,7 @@ import { ErrorsModule } from '../core/errors/errors.module';
         ReactiveFormsModule,
         FormsModule,
         ErrorsModule.forRoot({ required: 'Este campo es requerido' }),
+        HttpClientModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
