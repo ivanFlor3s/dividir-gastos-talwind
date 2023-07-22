@@ -15,6 +15,7 @@ import { ErrorsModule } from '../../../core/errors/errors.module';
         ErrorsModule.forRoot({
             required: 'Este campo es requerido',
             email: 'El email no es valido',
+            passwordConfirmation: 'Las contraseñas no coinciden',
         }),
     ],
     exports: [],
