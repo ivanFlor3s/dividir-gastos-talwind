@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { UsersService } from 'src/core/services/Users.service';
-import { UserCreationDto } from '../../../../models/dtos/user-creation.dto';
+import { UserCreationDto } from '@app/models/dtos';
+import { UsersService } from '@core/services';
 
 @Component({
     selector: 'app-register',

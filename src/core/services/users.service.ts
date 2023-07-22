@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserCreationDto } from 'src/app/models/dtos';
+import { UserCreationDto } from '@app/models/dtos';
 
 const API_ENDPOINT = 'https://localhost:7089';
 

@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { MsgeError } from 'src/app/interfaces';
+import { MsgeError } from '@app/interfaces';
 import { MSGE_ERROR_TOKEN } from '../errors.module';
 
 @Injectable()

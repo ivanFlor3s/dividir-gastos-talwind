@@ -20,6 +20,10 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
+    "paths": {
+      "@core/*":["src/core/*"],
+      "@app/*":["src/app/*"],
+    },
     "types": [
       "@angular/localize"
     ],

@@ -1,6 +1,6 @@
 import { InjectionToken, ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MsgeError } from 'src/app/interfaces';
+import { MsgeError } from '@app/interfaces';
 import { ValidationErrorMsgeService } from './services/error-validation-msge.service';
 import { FormSubmitDirective } from './form-submit.directive';
 import { ValidationMsgeDirective } from './validation-msge.directive';
