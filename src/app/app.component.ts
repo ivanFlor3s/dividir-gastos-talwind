@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
     title = 'dividir-gastos';
+    constructor() {
+        console.log(process.env['API_URL'], process.env['HOLA']);
+    }
 }
