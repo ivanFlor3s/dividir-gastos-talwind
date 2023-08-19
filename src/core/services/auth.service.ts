@@ -8,7 +8,7 @@ export class AuthService {
     private _http = inject(HttpClient);
 
     login(email: string, password: string) {
-        return this._http.post(`${process.env['API_ENDPOINT']}/auth/login`, {
+        return this._http.post(`${process.env['API_URL']}/auth/login`, {
             email,
             password,
         });
