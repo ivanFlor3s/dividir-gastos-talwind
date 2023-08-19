@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-root',
@@ -7,7 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
     title = 'dividir-gastos';
-    constructor() {
-        console.log(process.env['API_URL'], process.env['HOLA']);
+
+    get inAuthUrl(): boolean {
+        return this.router.url.includes('auth');
     }
+
+    constructor(private router: Router) {}
 }
