@@ -7,7 +7,7 @@ import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorsModule } from '../core/errors/errors.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 //Components
 import { AppComponent } from './app.component';
@@ -16,6 +16,9 @@ import { GroupCardComponent } from './pages/dashboard/components';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AgregarGastoComponent } from './pages/dashboard/components/modals/agregar-gasto/agregar-gasto.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
+
+//Interceptor
+import { AuthInterceptor } from '@core/auth.interceptor';
 
 //Ngxs
 import { NgxsStoragePluginModule, StorageOption } from '@ngxs/storage-plugin';
@@ -50,7 +53,9 @@ import { NgxsModule } from '@ngxs/store';
             storage: StorageOption.LocalStorage,
         }),
     ],
-    providers: [],
+    providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
