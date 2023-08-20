@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from '@core/services';
 import { Action, State, StateContext, Selector } from '@ngxs/store';
-import { Login } from './app.actions';
+import { Login, Logout } from './app.actions';
 import { tap } from 'rxjs';
 import { Helper } from '@core/utils';
 import Swal from 'sweetalert2';
@@ -11,12 +11,14 @@ export interface AppStateModel {
     expiration: string;
 }
 
+const defaultAppState: AppStateModel = {
+    token: '',
+    expiration: '',
+};
+
 @State<AppStateModel>({
     name: 'app',
-    defaults: {
-        token: '',
-        expiration: '',
-    },
+    defaults: defaultAppState,
 })
 @Injectable()
 export class AppState {
@@ -49,5 +51,10 @@ export class AppState {
                 },
             })
         );
+    }
+
+    @Action(Logout)
+    logout({ setState }: StateContext<AppStateModel>) {
+        setState(defaultAppState);
     }
 }
