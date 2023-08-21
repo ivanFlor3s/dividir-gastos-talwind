@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppState } from '@core/state';
 import { Select, Store } from '@ngxs/store';
+import { initFlowbite } from 'flowbite';
 import { Observable, Subscription } from 'rxjs';
 
 @Component({
@@ -23,6 +24,7 @@ export class AppComponent implements OnInit, OnDestroy {
     constructor(private router: Router, private _store: Store) {}
 
     ngOnInit(): void {
+        initFlowbite();
         this.initTokenSub();
     }
 
