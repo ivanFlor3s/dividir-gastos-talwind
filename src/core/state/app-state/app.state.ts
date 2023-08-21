@@ -5,15 +5,19 @@ import { Login, Logout } from './app.actions';
 import { tap } from 'rxjs';
 import { Helper } from '@core/utils';
 import Swal from 'sweetalert2';
+import jwt_decode from 'jwt-decode';
+import { TokenPayload } from '@app/interfaces';
 
 export interface AppStateModel {
     token: string;
     expiration: string;
+    email: string;
 }
 
 const defaultAppState: AppStateModel = {
     token: '',
     expiration: '',
+    email: '',
 };
 
 @State<AppStateModel>({
@@ -40,7 +44,8 @@ export class AppState {
             tap({
                 next(res) {
                     const { token, expiration } = res;
-                    ctx.patchState({ token, expiration });
+                    const { email } = jwt_decode(token) as TokenPayload;
+                    ctx.patchState({ token, expiration, email });
                 },
                 error(err) {
                     Swal.fire({
