@@ -3,7 +3,6 @@ import { AuthService } from '@core/services';
 import { Action, State, StateContext, Selector } from '@ngxs/store';
 import { Login, Logout } from './app.actions';
 import { tap } from 'rxjs';
-import { Helper } from '@core/utils';
 import Swal from 'sweetalert2';
 import jwt_decode from 'jwt-decode';
 import { TokenPayload } from '@app/interfaces';
@@ -29,11 +28,6 @@ export class AppState {
     @Selector()
     static token(state: AppStateModel) {
         return state.token;
-    }
-
-    @Selector([AppState.token])
-    static validToken(state: AppStateModel) {
-        return !!state.token && Helper.isACurrentDate(state.expiration);
     }
 
     constructor(private _authService: AuthService) {}
