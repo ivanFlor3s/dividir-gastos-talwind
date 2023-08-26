@@ -30,6 +30,11 @@ export class AppState {
         return state.token;
     }
 
+    @Selector()
+    static email(state: AppStateModel) {
+        return state.email;
+    }
+
     constructor(private _authService: AuthService) {}
 
     @Action(Login)

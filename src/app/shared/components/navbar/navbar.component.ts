@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AppState, Logout } from '@core/state';
+import { Select, Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-navbar',
@@ -6,9 +9,16 @@ import { Component } from '@angular/core';
     styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
+    @Select(AppState.email) email$: Observable<string>;
+
     showMenu = false;
+    _store = inject(Store);
 
     toggleMenu() {
         this.showMenu = !this.showMenu;
+    }
+
+    logout() {
+        this._store.dispatch(new Logout());
     }
 }
