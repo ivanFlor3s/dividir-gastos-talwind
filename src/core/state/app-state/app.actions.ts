@@ -6,3 +6,7 @@ export class Login {
 export class Logout {
     static readonly type = '[App] Logout';
 }
+
+export class RefreshToken {
+    static readonly type = '[App] RefreshToken';
+}
