@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '@core/services';
 import { Store } from '@ngxs/store';
-import { Login } from '@core/state';
+import { AppState, Login } from '@core/state';
 import { take } from 'rxjs';
 
 @Component({
@@ -37,7 +37,9 @@ export class LoginComponent {
             .pipe(take(1))
             .subscribe({
                 next: (_) => {
-                    this._router.navigate(['/dashboard']);
+                    if (this._store.selectSnapshot(AppState.token)) {
+                        this._router.navigate(['/dashboard']);
+                    }
                 },
             });
     }

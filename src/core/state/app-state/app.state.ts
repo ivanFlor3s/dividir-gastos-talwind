@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AuthService } from '@core/services';
 import { Action, State, StateContext, Selector } from '@ngxs/store';
 import { Login, Logout } from './app.actions';
-import { tap } from 'rxjs';
+import { catchError, tap } from 'rxjs';
 import Swal from 'sweetalert2';
 import jwt_decode from 'jwt-decode';
 import { TokenPayload } from '@app/interfaces';
@@ -40,6 +40,14 @@ export class AppState {
     @Action(Login)
     login(ctx: StateContext<AppStateModel>, { email, password }: Login) {
         return this._authService.login(email, password).pipe(
+            catchError((err) => {
+                ctx.patchState(defaultAppState);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Ocurrio un error',
+                });
+                throw err.error;
+            }),
             tap({
                 next(res) {
                     const { token, expiration } = res;
