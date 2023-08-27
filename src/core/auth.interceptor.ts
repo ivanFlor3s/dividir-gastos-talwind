@@ -7,9 +7,9 @@ import {
     HttpRequest,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, of, throwError } from 'rxjs';
+import { Observable, catchError, of, tap, throwError } from 'rxjs';
 import { Store } from '@ngxs/store';
-import { AppState } from './state';
+import { AppState, RefreshToken } from './state';
 import { Router } from '@angular/router';
 
 @Injectable()
@@ -20,15 +20,23 @@ export class AuthInterceptor implements HttpInterceptor {
         req: HttpRequest<any>,
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
+        const refreshTokenEndpoint = '/auth/refresh-token';
         const token = this._store.selectSnapshot(AppState.token);
 
         if (token) {
             const cloned = req.clone({
                 headers: req.headers.set('Authorization', `Bearer ${token}`),
             });
-            return next
-                .handle(cloned)
-                .pipe(catchError((x) => this.handleAuthError(x)));
+            return next.handle(cloned).pipe(
+                catchError((x) => this.handleAuthError(x)),
+                tap({
+                    next: (_) => {
+                        if (!req.url.includes(refreshTokenEndpoint)) {
+                            this._store.dispatch(new RefreshToken());
+                        }
+                    },
+                })
+            );
         } else {
             return next
                 .handle(req)
