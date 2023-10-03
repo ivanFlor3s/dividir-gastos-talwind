@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { GroupVM } from '@app/models/view-models';
 import { GroupsService } from '@core/services';
-import { Action, State, StateContext } from '@ngxs/store';
+import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { StartGettingGroups } from './group.actions';
 import { tap } from 'rxjs';
 
@@ -19,7 +19,13 @@ const defaultState: GroupStateModel = {
 })
 @Injectable()
 export class GroupState {
+    @Selector()
+    static groups(state: GroupStateModel) {
+        return state.groups;
+    }
+
     constructor(private _groupService: GroupsService) {}
+
     @Action(StartGettingGroups)
     startGettingGroups(
         ctx: StateContext<GroupStateModel>,
