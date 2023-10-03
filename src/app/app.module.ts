@@ -25,6 +25,7 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { AppState } from '@core/state/app-state/app.state';
 import { NgxsModule } from '@ngxs/store';
 import { SharedModule } from './shared/shared.module';
+import { GroupState } from '@core/state';
 
 @NgModule({
     declarations: [
@@ -44,7 +45,7 @@ import { SharedModule } from './shared/shared.module';
         SharedModule,
         ErrorsModule.forRoot({ required: 'Este campo es requerido' }),
         HttpClientModule,
-        NgxsModule.forRoot([AppState], {
+        NgxsModule.forRoot([AppState, GroupState], {
             developmentMode: process.env['PRODUCTION'] != '1',
         }),
         NgxsReduxDevtoolsPluginModule.forRoot(),
