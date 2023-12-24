@@ -45,7 +45,7 @@ import { SharedModule } from './shared/shared.module';
         ErrorsModule.forRoot({ required: 'Este campo es requerido' }),
         HttpClientModule,
         NgxsModule.forRoot([AppState], {
-            developmentMode: process.env['PRODUCTION'] != '1',
+            developmentMode: true,
         }),
         NgxsReduxDevtoolsPluginModule.forRoot(),
         NgxsStoragePluginModule.forRoot({

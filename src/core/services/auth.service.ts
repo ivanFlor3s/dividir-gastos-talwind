@@ -11,7 +11,7 @@ export class AuthService {
 
     login(email: string, password: string): Observable<LoginResponse> {
         return this._http.post<LoginResponse>(
-            `${process.env['API_URL']}/auth/login`,
+            `https://localhost:44339/api/auth/login`,
             {
                 email,
                 password,

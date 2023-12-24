@@ -9,6 +9,6 @@ export class GroupsService {
     private _http = inject(HttpClient);
 
     getGroups(): Observable<any> {
-        return this._http.get<any>(`${process.env['API_URL']}/group`);
+        return this._http.get<any>(`https://localhost:44339/api/group`);
     }
 }

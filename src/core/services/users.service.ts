@@ -11,6 +11,6 @@ export class UsersService {
     constructor(private http: HttpClient) {}
 
     createUser(user: UserCreationDto) {
-        return this.http.post(`${process.env['API_ENDPOINT']}/user`, user);
+        return this.http.post(`https://localhost:44339/api/user`, user);
     }
 }
