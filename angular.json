@@ -15,14 +15,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "allowedCommonJsDependencies":[
               "sweetalert2"
             ],
-            "customWebpackConfig": {
-              "path": "src/custom-webpack.config.ts"
-            },
             "outputPath": "dist/dividir-gastos",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -68,7 +65,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-builders/custom-webpack:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
               "browserTarget": "dividir-gastos:build:production"
@@ -103,23 +100,11 @@
             ],
             "scripts": []
           }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
-          }
         }
       }
     }
   },
   "cli": {
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ],
-    "analytics": "0245df1c-3218-45ec-8d32-2c2cb1173876"
+    "analytics": false
   }
 }
