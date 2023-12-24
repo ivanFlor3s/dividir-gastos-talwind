@@ -16,6 +16,8 @@ export class DashboardComponent {
 
     private _store = inject(Store);
 
+    filter = '';
+
     constructor(private modalService: NgbModal) {
         this._store.dispatch(new StartGettingGroups(''));
     }
@@ -25,5 +27,9 @@ export class DashboardComponent {
     }
     saludar() {
         alert('QWUIRWAFSAK');
+    }
+
+    searchGroups(filter: string) {
+        console.log('busco por', filter);
     }
 }
