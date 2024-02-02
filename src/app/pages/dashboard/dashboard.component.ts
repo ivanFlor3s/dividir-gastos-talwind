@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AgregarGastoComponent } from './components';
+import { AgregarGastoComponent, NewGroupComponent } from './components';
 import { Select, Store } from '@ngxs/store';
 import { GroupState, StartGettingGroups } from '@core/state';
 import { GroupVM } from '@app/models/view-models';
@@ -23,7 +23,7 @@ export class DashboardComponent {
     }
 
     openModal() {
-        this.modalService.open(AgregarGastoComponent, {});
+        // this.modalService.open(AgregarGastoComponent, {});
     }
     saludar() {
         alert('QWUIRWAFSAK');
@@ -31,5 +31,9 @@ export class DashboardComponent {
 
     searchGroups(filter: string) {
         console.log('busco por', filter);
+    }
+
+    openNewGroup() {
+        this.modalService.open(NewGroupComponent, {});
     }
 }

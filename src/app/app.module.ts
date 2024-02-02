@@ -11,10 +11,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 //Components
 import { AppComponent } from './app.component';
-import { GroupCardComponent } from './pages/dashboard/components';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { AgregarGastoComponent } from './pages/dashboard/components/modals/agregar-gasto/agregar-gasto.component';
-import { UsersListComponent } from './components/users-list/users-list.component';
 
 //Interceptor
 import { AuthInterceptor } from '@core/auth.interceptor';
@@ -29,14 +25,7 @@ import { GroupState } from '@core/state';
 import { environment } from 'src/environments/environment';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        ClickOutsideDirective,
-        DashboardComponent,
-        AgregarGastoComponent,
-        UsersListComponent,
-        GroupCardComponent,
-    ],
+    declarations: [AppComponent, ClickOutsideDirective],
     imports: [
         BrowserModule,
         AppRoutingModule,
