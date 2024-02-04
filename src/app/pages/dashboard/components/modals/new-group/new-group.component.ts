@@ -1,8 +1,12 @@
 import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AppState } from '@core/state';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CreateGroupRequest } from '@app/interfaces';
+import { GroupsService } from '@core/services';
+import { AppState, StartCreatingGroups } from '@core/state';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Store } from '@ngxs/store';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize, take } from 'rxjs';
 
 @Component({
     selector: 'app-new-group',
@@ -15,6 +19,7 @@ export class NewGroupComponent {
     private store = inject(Store);
 
     private modalService = inject(NgbModal);
+    private _activeModal = inject(NgbActiveModal);
 
     currentEmail$ = this.store.select(AppState.email);
 
@@ -22,7 +27,7 @@ export class NewGroupComponent {
         return this.form.get('emails') as FormArray;
     }
 
-    form: FormGroup = this._fb.group({
+    form = this._fb.group({
         name: ['', Validators.required],
         description: [''],
         emails: this._fb.array([]),
@@ -43,7 +48,17 @@ export class NewGroupComponent {
     }
 
     onSubmit() {
-        console.log(this.form.value);
+        if (this.form.invalid) {
+            return;
+        }
+
+        this.store
+            .dispatch(
+                new StartCreatingGroups(this.form.value as CreateGroupRequest)
+            )
+            .subscribe(() => {
+                this._activeModal.close();
+            });
     }
 
     dismiss() {

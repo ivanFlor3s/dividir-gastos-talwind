@@ -12,6 +12,7 @@ import { UsersListComponent } from '../../components/users-list/users-list.compo
 import { SharedModule } from '@app/shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DashboardRoutingModule } from './dashboard.routing';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
     declarations: [
@@ -32,6 +33,7 @@ import { DashboardRoutingModule } from './dashboard.routing';
             email: 'El email no es valido',
             passwordConfirmation: 'Las contraseñas no coinciden',
         }),
+        NgxSpinnerModule,
     ],
     exports: [],
     providers: [],

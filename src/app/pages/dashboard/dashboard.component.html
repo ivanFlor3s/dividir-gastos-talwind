@@ -2,7 +2,6 @@
     <div class="flex flex-row justify-between my-3">
         <h1 class="text-4xl font-bold lg:text-6xl leading-none">Dashboard</h1>
     </div>
-
     <div class="d-flex justify-between items-center mb-3">
         <app-search (searchEvent)="searchGroups($event)"></app-search>
         <button class="td-btn-primary" (click)="openNewGroup()">
@@ -18,8 +17,14 @@
                 [group]="item"></app-group-card>
         </div>
     </ng-container>
-
-    <!-- <button class="rounded p-2 bg-indigo-700 text-white" (click)="openModal()">
-        Abrir modal
-    </button> -->
+    <ngx-spinner
+        name="groups"
+        type="square-jelly-box"
+        bdColor="rgba(0, 0, 0, 0.8)"
+        size="medium"
+        color="#fff"
+        [zIndex]="2500"
+        [fullScreen]="true">
+        Cargando tus grupos...
+    </ngx-spinner>
 </div>

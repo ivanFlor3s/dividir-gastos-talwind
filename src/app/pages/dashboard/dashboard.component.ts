@@ -5,6 +5,7 @@ import { Select, Store } from '@ngxs/store';
 import { GroupState, StartGettingGroups } from '@core/state';
 import { GroupVM } from '@app/models/view-models';
 import { Observable } from 'rxjs';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
     selector: 'app-dashboard',
@@ -22,11 +23,13 @@ export class DashboardComponent {
         this._store.dispatch(new StartGettingGroups(''));
     }
 
+    ngOnInit(): void {
+        //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+        //Add 'implements OnInit' to the class.
+    }
+
     openModal() {
         // this.modalService.open(AgregarGastoComponent, {});
-    }
-    saludar() {
-        alert('QWUIRWAFSAK');
     }
 
     searchGroups(filter: string) {
