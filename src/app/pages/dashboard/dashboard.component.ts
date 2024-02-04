@@ -33,7 +33,7 @@ export class DashboardComponent {
     }
 
     searchGroups(filter: string) {
-        console.log('busco por', filter);
+        this._store.dispatch(new StartGettingGroups(filter));
     }
 
     openNewGroup() {
