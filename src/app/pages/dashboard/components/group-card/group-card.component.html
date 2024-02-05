@@ -12,7 +12,10 @@
             {{ group.description }}
         </p>
         <div class="flex flex-row justify-between mt-auto">
-            <span>{{ group.users.length }} participantes</span>
+            <span>
+                {{ group.users.length }}
+                {{ group.users.length > 1 ? 'participantes' : 'participante' }}
+            </span>
             <span>$400</span>
         </div>
     </div>
