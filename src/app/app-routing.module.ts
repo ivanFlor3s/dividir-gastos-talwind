@@ -15,6 +15,11 @@ const routes: Routes = [
                 (m) => m.DashboardModule
             ),
     },
+    {
+        path: 'group/:idGroup',
+        loadChildren: () =>
+            import('./pages/group/group.module').then((m) => m.GroupModule),
+    },
     { path: '**', pathMatch: 'full', redirectTo: 'dashboard' },
 ];
 
