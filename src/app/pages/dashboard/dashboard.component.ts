@@ -23,15 +23,6 @@ export class DashboardComponent {
         this._store.dispatch(new StartGettingGroups(''));
     }
 
-    ngOnInit(): void {
-        //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-        //Add 'implements OnInit' to the class.
-    }
-
-    openModal() {
-        // this.modalService.open(AgregarGastoComponent, {});
-    }
-
     searchGroups(filter: string) {
         this._store.dispatch(new StartGettingGroups(filter));
     }
