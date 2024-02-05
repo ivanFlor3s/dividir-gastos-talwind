@@ -1,17 +1,30 @@
-<div class="flex flex-row justify-between my-3">
-    <h1 class="text-4xl font-bold lg:text-6xl leading-none">Dashboard</h1>
-    <button class="td-btn-primary">
-        <i class="fa fa-plus"></i>
-        Nuevo gruposss
-    </button>
+<div class="container">
+    <div class="flex flex-row justify-between my-3">
+        <h1 class="text-4xl font-bold lg:text-6xl leading-none">Dashboard</h1>
+    </div>
+    <div class="d-flex justify-between items-center mb-3">
+        <app-search (searchEvent)="searchGroups($event)"></app-search>
+        <button class="td-btn-primary" (click)="openNewGroup()">
+            <i class="fa fa-plus"></i>
+            Nuevo gruposss
+        </button>
+    </div>
+    <!-- Grupos cards -->
+    <ng-container *ngIf="groups$ | async as groups">
+        <div class="flex flex-col space-y-4">
+            <app-group-card
+                *ngFor="let item of groups"
+                [group]="item"></app-group-card>
+        </div>
+    </ng-container>
+    <ngx-spinner
+        name="groups"
+        type="square-jelly-box"
+        bdColor="rgba(0, 0, 0, 0.8)"
+        size="medium"
+        color="#fff"
+        [zIndex]="2500"
+        [fullScreen]="true">
+        Cargando tus grupos...
+    </ngx-spinner>
 </div>
-<!-- Grupos cards -->
-<div class="flex flex-col space-y-4">
-    <app-group-card></app-group-card>
-    <app-group-card></app-group-card>
-    <app-group-card></app-group-card>
-</div>
-
-<!-- <button class="rounded p-2 bg-indigo-700 text-white" (click)="openModal()">
-    Abrir modal
-</button> -->

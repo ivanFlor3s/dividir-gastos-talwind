@@ -1,0 +1,12 @@
+<div class="relative">
+    <input
+        type="text"
+        class="td-form-control"
+        #filter
+        (keyup.enter)="searchEvent.emit(filter.value)" />
+    <button
+        class="absolute top-2 right-2.5 bg-none border-none"
+        (click)="searchEvent.emit(filter.value)">
+        <i class="fa fa-search text-gray-300 hover:text-indigo-700"></i>
+    </button>
+</div>
