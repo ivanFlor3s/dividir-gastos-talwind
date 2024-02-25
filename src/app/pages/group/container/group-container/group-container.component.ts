@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { GroupDetail } from '@app/interfaces/group.detail';
 import { GettingGroupError, GroupState, StartGettingGroup } from '@core/state';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
@@ -11,6 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class GroupContainerComponent implements OnInit {
     @Select(GroupState.error) error$: Observable<GettingGroupError>;
+    @Select(GroupState.detail) groupDetail$: Observable<GroupDetail>;
 
     constructor(private store: Store, private activatedRoute: ActivatedRoute) {
         const { idGroup } = this.activatedRoute.snapshot.params;
