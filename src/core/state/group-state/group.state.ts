@@ -13,14 +13,11 @@ import { finalize, take, tap } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { GettingGroupErrorType } from '@app/interfaces/getting-group-error';
+import { GroupDetail } from '@app/interfaces/group.detail';
 
 export interface GroupStateModel {
     groups: GroupVM[];
-    activeGroup: {
-        group: GroupVM | null;
-        spents: any[];
-        liquidaciones: any[];
-    };
+    detail: GroupDetail;
     error: GettingGroupError;
 }
 
@@ -34,7 +31,7 @@ export class GettingGroupError {
 
 const defaultState: GroupStateModel = {
     groups: [],
-    activeGroup: {
+    detail: {
         group: null,
         spents: [],
         liquidaciones: [],
@@ -60,6 +57,11 @@ export class GroupState {
     @Selector()
     static error(state: GroupStateModel) {
         return state.error?.show ? state.error : null;
+    }
+
+    @Selector()
+    static detail(state: GroupStateModel) {
+        return state.detail;
     }
 
     constructor(
@@ -117,8 +119,8 @@ export class GroupState {
             tap({
                 next(res) {
                     ctx.patchState({
-                        activeGroup: {
-                            ...ctx.getState().activeGroup,
+                        detail: {
+                            ...ctx.getState().detail,
                             group: res,
                         },
                         error: { message: '', show: false, type: null },
