@@ -1,3 +1,17 @@
 <div class="container">
-    <h1>Detalle del grupo</h1>
+    <ng-container *ngIf="error$ | async as error; else content">
+        <div class="flex">
+            <section id="error" class="d-flex flex-row gap-3 mx-auto mt-3">
+                <div>
+                    <h1 class="text-5xl text-indigo-600 font-bold">
+                        {{ error.type }}
+                    </h1>
+                    <p class="text-3xl">{{ error.message }}</p>
+                </div>
+            </section>
+        </div>
+    </ng-container>
+    <ng-template #content>
+        <h1>Detalle del grupo</h1>
+    </ng-template>
 </div>

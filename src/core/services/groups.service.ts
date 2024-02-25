@@ -20,4 +20,10 @@ export class GroupsService {
     createGroup(body: CreateGroupRequest): Observable<GroupVM> {
         return this._http.post<GroupVM>(`${environment.API_URL}/group`, body);
     }
+
+    getGroup(groupId: number): Observable<GroupVM> {
+        return this._http.get<GroupVM>(
+            `${environment.API_URL}/group/${groupId}`
+        );
+    }
 }
