@@ -9,23 +9,20 @@
     <form>
         <section id="participants">
             <div class="flex flex-row gap-2 items-start">
-                <p>
+                <p class="text-nowrap">
                     Con
                     <strong>tu y:</strong>
                 </p>
-                <div
-                    class="border border-gray-300 bg-neutral-50 rounded-full py-1 px-1 flex flex-row gap-1">
-                    <span
-                        class="bg-blue-500 rounded-full inline-block h-7 w-7 relative">
-                        <i
-                            class="fa-solid fa-people-group origin-center text-white m-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
-                    </span>
-                    <span>Todos los del grupo</span>
-                    <span>
-                        <i
-                            class="fa-regular fa-times-circle cursor-pointer hover:font-bold"></i>
-                    </span>
-                </div>
+                <app-users-list
+                    [userList]="[
+                        'Todos los del grupo',
+                        'franco',
+                        'ivan',
+                        'asddsa',
+                        'franco2',
+                        'ivan3',
+                        'asddsa4'
+                    ]"></app-users-list>
             </div>
         </section>
         <section id="icon-description-amount" class="mt-3">
@@ -41,6 +38,7 @@
                     <input
                         class="td-form-control"
                         placeholder="$00.00"
+                        min="0"
                         id="name"
                         formControlName="name"
                         autocomplete="off"
