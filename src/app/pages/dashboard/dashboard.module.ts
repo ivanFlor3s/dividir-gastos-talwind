@@ -8,7 +8,6 @@ import {
 import { DashboardComponent } from './dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ErrorsModule } from '@core/errors/errors.module';
-import { UsersListComponent } from '../../components/users-list/users-list.component';
 import { SharedModule } from '@app/shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DashboardRoutingModule } from './dashboard.routing';
@@ -20,7 +19,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
         AgregarGastoComponent,
         NewGroupComponent,
         GroupCardComponent,
-        UsersListComponent,
     ],
     imports: [
         CommonModule,
