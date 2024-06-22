@@ -12,6 +12,6 @@ export class UsersService {
     constructor(private http: HttpClient) {}
 
     createUser(user: UserCreationDto) {
-        return this.http.post(`${environment.API_URL}/user`, user);
+        return this.http.post(`${environment.API_URL}/auth/registrar`, user);
     }
 }

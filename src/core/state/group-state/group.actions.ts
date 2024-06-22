@@ -1,5 +1,6 @@
 import { CreateGroupRequest } from '@app/interfaces';
 import { GroupVM } from '@app/models/view-models';
+import { GettingGroupError } from './group.state';
 
 export class StartGettingGroups {
     static readonly type = '[Groups] StartGettingGroups';
@@ -12,6 +13,16 @@ export class StartCreatingGroups {
 }
 
 export class AddGroup {
-    static readonly type = '[Groups] StartCreatigGroups';
+    static readonly type = '[Groups] AddGroup';
     constructor(public group: GroupVM) {}
+}
+
+export class StartGettingGroup {
+    static readonly type = '[Groups] StartGettingGroup';
+    constructor(public groupId: number) {}
+}
+
+export class SetErrorInGroupDetail {
+    static readonly type = '[Groups] SetErrorInGroupDetail';
+    constructor(public error: GettingGroupError) {}
 }

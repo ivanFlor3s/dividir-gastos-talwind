@@ -1,8 +1,8 @@
 import { UserVM } from './user.vm';
 
 export interface GroupVM {
-    groupId: number;
-    groupName: string;
+    id: number;
+    name: string;
     description: string;
     createdAt: string;
     imageUrl: string;

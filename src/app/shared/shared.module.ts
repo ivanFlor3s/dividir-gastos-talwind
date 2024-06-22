@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
+    CloseableBadgeComponent,
     DropdownComponent,
     NavbarComponent,
     SearchComponent,
+    UsersListComponent,
 } from './components';
 import { ClickOutsideDirective } from './directives';
 
@@ -13,6 +15,8 @@ import { ClickOutsideDirective } from './directives';
         NavbarComponent,
         ClickOutsideDirective,
         SearchComponent,
+        UsersListComponent,
+        CloseableBadgeComponent,
     ],
     imports: [CommonModule],
     exports: [
@@ -20,6 +24,8 @@ import { ClickOutsideDirective } from './directives';
         NavbarComponent,
         ClickOutsideDirective,
         SearchComponent,
+        UsersListComponent,
+        CloseableBadgeComponent,
     ],
     providers: [],
 })
