@@ -13,7 +13,7 @@ export class StartCreatingGroups {
 }
 
 export class AddGroup {
-    static readonly type = '[Groups] StartCreatigGroups';
+    static readonly type = '[Groups] AddGroup';
     constructor(public group: GroupVM) {}
 }
 
