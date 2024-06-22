@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
+    AvatarComponent,
     CloseableBadgeComponent,
     DropdownComponent,
     NavbarComponent,
@@ -8,6 +9,8 @@ import {
     UsersListComponent,
 } from './components';
 import { ClickOutsideDirective } from './directives';
+
+import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -17,8 +20,9 @@ import { ClickOutsideDirective } from './directives';
         SearchComponent,
         UsersListComponent,
         CloseableBadgeComponent,
+        AvatarComponent,
     ],
-    imports: [CommonModule],
+    imports: [CommonModule, NgbTooltipModule],
     exports: [
         DropdownComponent,
         NavbarComponent,
@@ -26,6 +30,7 @@ import { ClickOutsideDirective } from './directives';
         SearchComponent,
         UsersListComponent,
         CloseableBadgeComponent,
+        AvatarComponent,
     ],
     providers: [],
 })
