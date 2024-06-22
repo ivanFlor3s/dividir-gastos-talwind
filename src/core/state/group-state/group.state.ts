@@ -96,7 +96,7 @@ export class GroupState {
             take(1),
             finalize(() => this._spinner.hide('newGroup')),
             tap({
-                next(res) {
+                next(res: GroupVM) {
                     ctx.dispatch(new AddGroup(res));
                 },
             })
